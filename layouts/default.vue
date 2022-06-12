@@ -5,9 +5,12 @@
       :mini-variant="miniVariant"
       :clipped="clipped"
       fixed
+      permanent
+      src="/bg_blue.png"
+      yd rail
       app
     >
-      <v-list>
+      <v-list color="transparent">
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
@@ -16,7 +19,14 @@
           exact
         >
           <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-avatar
+              size="48px"
+            >
+              <v-img
+                :src="item.icon"
+                ></v-img>
+            </v-avatar>
+            
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
@@ -27,6 +37,7 @@
     <v-app-bar
       :clipped-left="clipped"
       fixed
+      src="/bg_blue.png"
       app
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
@@ -98,20 +109,45 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
+          icon: '/avatar.png',
+          title: '角色',
           to: '/'
         },
         {
+          icon: '/gather/gather.png',
+          title: '采集',
+          to: '/skill'
+        },
+        {
+          icon: '/manufacture/manufacture.png',
+          title: '制造',
+          to: '/skill'
+        },
+        {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title: '村庄',
+          to: '/skill'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: '战斗',
+          to: '/skill'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: '装备',
+          to: '/skill'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: '技能',
+          to: '/skill'
         }
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Cyber-Idle'
     }
   }
 }
